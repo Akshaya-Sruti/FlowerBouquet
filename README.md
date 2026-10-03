@@ -1,171 +1,159 @@
 # 🌸 FlowerBouquet
 
-### *A bouquet that grows with your hands.*
+### A little garden that listens.
 
-> **Pinch. Open. Grow. Bloom.**
->
-> A real-time interactive flower garden built with **Python, OpenCV, MediaPipe, and procedural graphics** — where your hands become the controls for a living bouquet.
+> Some things are better grown quietly.
 
-<br>
+FlowerBouquet is a small interactive experiment built around flowers, movement, and the little details that make something feel alive.
 
-<p align="center">
-
-🌱 **Pinch** → Closed buds
-🌷 **Open** → Bloom
-🌿 **Left hand** → Grow the stems
-🌸 **Right hand** → Control the bloom
-
-</p>
+It started as a simple hand-controlled OpenCV project and slowly became something softer: a bouquet that grows, sways, blooms, and responds to you.
 
 ---
 
-## ✦ What is this?
+## ✿ The Idea
 
-**FlowerBouquet** is an interactive computer-vision experiment where a webcam becomes the interface.
+The bouquet is controlled through hand gestures.
 
-Instead of clicking buttons or using a mouse, you control a procedural bouquet using your hands.
+Instead of simply displaying flowers, the project treats the bouquet as a living little system.
 
-The flowers begin as tiny buds gathered together. As you interact with them, organic curved stalks grow outward, the flowers open, sway naturally, breathe independently, and move together like a real hand-tied bouquet.
+* 🌱 **Left hand** controls the height of the stems
+* 🌸 **Right hand** controls how much the flowers bloom
+* 🤏 **Pinch** makes them smaller
+* 🖐️ **Open hand** lets them grow and bloom
+* 🌿 Every stem moves slightly differently
+* 🌬️ The bouquet has a gentle natural sway
+* ✨ Each flower breathes independently
 
-No image assets.
+The goal is not perfect symmetry.
 
-No pre-rendered flowers.
-
-Everything is generated **in real time**.
-
----
-
-## 🌷 The Interaction
-
-| Your hand | Gesture        | Effect                  |
-| --------- | -------------- | ----------------------- |
-| 🤚 Left   | Pinch          | Stems shrink            |
-| 🤚 Left   | Open           | Stems grow              |
-| 🤚 Right  | Pinch          | Flowers close into buds |
-| 🤚 Right  | Open           | Flowers bloom           |
-| 🫶 Both   | Move naturally | Bouquet responds        |
-
-The controls are continuous rather than binary, so the bouquet responds gradually to your hand position.
+It is supposed to feel a little alive.
 
 ---
 
-## ✨ What makes it different?
+## 🌷 The Bouquet
 
-This isn't just a webcam filter.
+Every flower is generated procedurally.
 
-The bouquet is procedurally constructed and animated.
+There are no pre-rendered flower images.
 
-### 🌱 Organic growth
+Each flower is built from shapes, curves, layers, and carefully controlled motion.
 
-The stems don't simply appear as straight lines.
-
-Each stem has its own:
+The stems follow organic curved paths rather than perfectly straight lines, while the flowers have their own small variations in:
 
 * curvature
+* angle
 * length
-* direction
-* bend
-* sway
 * depth
+* sway
+* bloom timing
+* breathing motion
 
-They originate from a shared gathering point to create the appearance of a **hand-tied bouquet**.
-
-### 🌸 Procedural flowers
-
-The flowers are drawn mathematically rather than loaded from PNGs or sprites.
-
-Their geometry is generated dynamically using OpenCV primitives and curves.
-
-### 🌬️ Natural movement
-
-The bouquet continuously responds to a subtle simulated breeze.
-
-Movement is strongest toward the flower heads while the gathering point remains relatively stable.
-
-### 💗 Breathing flowers
-
-Each flower has an independent breathing cycle.
-
-The result is intentionally subtle:
-
-> not an animation playing on top of the flowers, but a bouquet that feels slightly alive.
-
-### 🎀 Hand-tied bouquet
-
-A procedural ribbon wraps around the gathered stems.
-
-The stems partially disappear beneath the ribbon to create a small sense of physical depth and occlusion.
+Together, these small differences make the bouquet feel less like a collection of identical objects and more like one gathered bunch of flowers.
 
 ---
 
-# 🧠 How it works
+## 🎀 One Small Detail
 
-```text
-                 WEBCAM
-                    │
-                    ▼
-            ┌───────────────┐
-            │    OpenCV     │
-            │ Video Capture │
-            └───────┬───────┘
-                    │
-                    ▼
-            ┌───────────────┐
-            │   MediaPipe   │
-            │ Hand Tracking │
-            └───────┬───────┘
-                    │
-             Hand Landmarks
-                    │
-          ┌─────────┴─────────┐
-          ▼                   ▼
-      LEFT HAND           RIGHT HAND
-          │                   │
-          ▼                   ▼
-     Stem Growth          Bloom Control
-          │                   │
-          └─────────┬─────────┘
-                    ▼
-             ┌─────────────┐
-             │   Flower    │
-             │   Engine    │
-             └──────┬──────┘
-                    │
-                    ▼
-            Procedural Bouquet
-                    │
-                    ▼
-             Real-time Render
-```
+The flowers come together around a shared base and are held with a soft procedural ribbon.
+
+The ribbon has:
+
+* subtle folds
+* gentle highlights
+* natural curvature
+* slightly uneven tails
+* depth-aware layering
+
+A small portion of the stems disappears underneath it, so the bouquet feels tied together rather than assembled separately.
 
 ---
 
-# 🛠️ Built With
+## 🌱 From Bud to Bloom
 
-### Computer Vision
+When the project starts, the flowers appear as tiny buds.
 
-* **Python**
-* **OpenCV**
-* **MediaPipe**
+There are no visible stems at first.
 
-### Mathematics & Rendering
+As the left hand opens, the stems gradually grow outward along their predefined curves.
 
-* **NumPy**
+At the same time, the right hand controls the flowers themselves.
+
+The transition is continuous:
+
+**bud → swelling bud → partial bloom → full bloom**
+
+Everything is interpolated smoothly rather than switching between fixed states.
+
+---
+
+## ✨ Procedural by Design
+
+The entire bouquet is drawn dynamically.
+
+No flower PNGs.
+
+No pre-rendered animation.
+
+No fixed movement paths.
+
+The visual system uses:
+
+* Python
+* OpenCV
+* MediaPipe
+* NumPy
+* procedural geometry
+* Bézier-style curves
+* layered drawing
+* real-time animation
+
+The result is generated frame by frame.
+
+---
+
+## 🖐️ Interaction
+
+| Gesture             | Interaction                           |
+| ------------------- | ------------------------------------- |
+| 🤏 Right-hand pinch | Flowers close into buds               |
+| 🖐️ Right-hand open | Flowers bloom                         |
+| 🤏 Left-hand pinch  | Stems become short                    |
+| 🖐️ Left-hand open  | Stems grow                            |
+| ✋ Movement          | Adds natural variation to the bouquet |
+
+The two controls are intentionally independent.
+
+One hand grows the bouquet.
+
+The other lets it bloom.
+
+---
+
+## 🛠️ Tech Stack
+
+**Core**
+
+* Python
+* OpenCV
+* NumPy
+* MediaPipe
+
+**Computer Vision**
+
+* Hand landmark detection
+* Gesture recognition
+* Real-time camera input
+
+**Rendering**
+
 * Procedural geometry
-* Curve interpolation
-* Parametric animation
-* Real-time compositing
-* Alpha blending
-
-### Interface
-
-* Webcam
-* Hand landmark tracking
-* Gesture-based interaction
+* Curved paths
+* Layered shapes
+* Real-time animation
 
 ---
 
-# 📁 Project Structure
+## 📁 Project Structure
 
 ```text
 FlowerBouquet/
@@ -174,229 +162,108 @@ FlowerBouquet/
 ├── flower.py
 ├── hand_tracker.py
 ├── utils.py
-├── requirements.txt
+│
 ├── .gitignore
 └── README.md
 ```
 
 ### `main.py`
 
-The application entry point.
-
-Responsible for:
-
-* webcam capture
-* application loop
-* hand input
-* bouquet updates
-* rendering
-
-### `hand_tracker.py`
-
-Handles:
-
-* MediaPipe initialization
-* hand landmark detection
-* gesture estimation
-* left/right hand identification
-* pinch/open measurements
+Runs the application and connects the camera, hand tracking, controls, and rendering system.
 
 ### `flower.py`
 
-The heart of the visual system.
+Contains the procedural flower and bouquet rendering logic.
 
-Responsible for:
+### `hand_tracker.py`
 
-* flower geometry
-* buds
-* blooming
-* stalk curves
-* sway
-* breathing
-* colors
-* bouquet behavior
-* ribbon rendering
+Handles MediaPipe hand tracking and extracts the required landmarks and gestures.
 
 ### `utils.py`
 
-Contains reusable helpers for:
-
-* smoothing
-* interpolation
-* coordinate conversion
-* drawing
-* animation utilities
+Contains supporting utility functions used throughout the project.
 
 ---
 
-# 🚀 Getting Started
+## 🚀 Running Locally
 
-## 1. Clone the repository
+Clone the repository and move into the project directory:
 
 ```bash
 git clone https://github.com/Akshaya-Sruti/FlowerBouquet.git
 cd FlowerBouquet
 ```
 
-## 2. Create a virtual environment
+Create a virtual environment:
 
-### Windows
-
-```powershell
+```bash
 python -m venv venv
 ```
 
-Activate it:
+Activate it on Windows:
 
-```powershell
+```bash
 venv\Scripts\activate
 ```
 
-## 3. Install dependencies
+Install the dependencies:
 
-```powershell
+```bash
 pip install -r requirements.txt
 ```
 
-## 4. Run
+Then run:
 
-```powershell
+```bash
 python main.py
 ```
 
-Make sure your webcam is available.
+Make sure your camera is available before starting the application.
 
 ---
 
-# 🎮 Controls
+## 🌿 Design Philosophy
 
-### Left Hand 🌿
+The project is intentionally soft.
 
-```text
-PINCH ───────────────► Short / hidden stems
+The movement is not perfectly synchronized.
 
-        ↕ continuous
+The flowers are not perfectly identical.
 
-OPEN ────────────────► Long stems
-```
+The stems are not perfectly straight.
 
-### Right Hand 🌸
+The ribbon is not perfectly symmetrical.
 
-```text
-PINCH ───────────────► Buds
+The small imperfections are part of the design.
 
-        ↕ continuous
-
-OPEN ────────────────► Full bloom
-```
-
-### Keyboard
-
-```text
-Q / ESC  →  Exit
-```
+Because sometimes the nicest things are the ones that don't look completely calculated.
 
 ---
 
-# 🌸 Design Philosophy
+## 🌸 What's Next
 
-FlowerBouquet was built around a simple idea:
+The project can eventually grow into a browser-based interactive experience with:
 
-> **What if a computer-generated flower could feel less like a graphic and more like something alive?**
+* Web-based procedural rendering
+* Browser hand tracking
+* Mobile support
+* More flower varieties
+* More natural hand interaction
+* Interactive environments
+* A small whimsical garden experience
 
-Instead of trying to make the most realistic botanical simulation possible, the project focuses on **perceived naturalness**.
+For now, it is just a little bouquet.
 
-Small imperfections are intentional.
-
-Different stems curve differently.
-
-Flowers breathe at different phases.
-
-The bouquet sways rather than rotating rigidly.
-
-The stems gather rather than forming a perfect radial pattern.
-
-The ribbon hides a small portion of the stems.
-
-These tiny details are what make the procedural system feel organic.
-
----
-
-# 🧩 Procedural, not pre-rendered
-
-There are **no flower PNGs or sprite sheets** required for the bouquet.
-
-The visual system generates the flowers dynamically.
-
-That means:
-
-```text
-Geometry
-   +
-Mathematics
-   +
-Motion
-   +
-Hand Input
-   ↓
-Living Bouquet
-```
-
-The same system can therefore produce variations without requiring new image assets.
-
----
-
-# 🔮 Possible Future Experiments
-
-This project can evolve far beyond a single bouquet.
-
-Some ideas:
-
-* 🌹 Different flower species
-* 🌻 Seasonal bouquets
-* 🌈 Gesture-controlled color palettes
-* 🌧️ Rain interaction
-* ☀️ Light-sensitive flowers
-* 🌙 Night-mode gardens
-* 🦋 Procedural butterflies
-* 🎵 Music-reactive blooming
-* 👥 Two-person interaction
-* 🪴 Multiple bouquet types
-* 🧠 Gesture learning
-* 🥽 VR / XR version
-
----
-
-# 💭 Why I Built This
-
-Most computer-vision projects end with:
-
-> detect something → display something.
-
-I wanted to explore something different:
-
-> **detect something → create an experience.**
-
-FlowerBouquet is an experiment in combining:
-
-**Computer Vision × Procedural Graphics × Interaction Design**
-
-into something playful.
-
----
-
-## 🌷 Made with curiosity, code & a little bit of magic.
-
-<p align="center">
-
-**Python · OpenCV · MediaPipe · NumPy**
-
-🌱 → 🌿 → 🌷 → 🌸
-
-</p>
+Quietly growing.
 
 ---
 
 <p align="center">
-  <i>Touch nothing. Just move your hands.</i>
+
+**made with love ♡**
+
+*For the one who notices the little things.*
+
+`soft launch · quietly growing`
+
 </p>
